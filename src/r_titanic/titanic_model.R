@@ -1,4 +1,4 @@
-# Titanic Survival Prediction - R Version (final path-stable version)
+# Titanic Survival Prediction - R Version
 
 library(readr)
 library(dplyr)
@@ -6,13 +6,9 @@ library(caret)
 
 cat("Libraries loaded successfully.\n")
 
-# Data path (Docker copies data/ into /app/data)
-data_path <- "data"
-cat("Using data path:", data_path, "\n")
-
 # Load data
-train <- read_csv(file.path(data_path, "train.csv"))
-test  <- read_csv(file.path(data_path, "test.csv"))
+train <- read_csv("src/data/train.csv")
+test  <- read_csv("src/data/test.csv")
 cat("Data loaded successfully.\n")
 
 # Handle missing values
@@ -44,6 +40,6 @@ cat("Training accuracy:", round(train_acc, 4), "\n")
 test_pred <- ifelse(predict(model, newdata = test, type = "response") > 0.5, 1, 0)
 
 # Save results
-output_path <- file.path(data_path, "predictions_r.csv")
-write_csv(data.frame(PassengerId = test$PassengerId, Survived = test_pred), output_path)
-cat("Predictions saved to", output_path, "\n")
+pred <- data.frame(PassengerId = test$PassengerId, Survived = test_pred)
+write_csv(pred, "src/data/predictions_r.csv")
+cat("Predictions saved to src/data/predictions_r.csv\n")
