@@ -23,7 +23,7 @@ These files are required to run both the Python and R Docker environments but ar
    ```bash
    docker run --rm titanic-py
    ```
-   This will train a logistic regression model and save predictions to `src/data/predictions_py.csv`.
+   This will train a logistic regression model and save predictions to `src/data/predictions.csv`.
 
 ---
 
