@@ -1,0 +1,1 @@
+install.packages(c("readr", "dplyr", "glmnet","tidyr","caret"), repos='http://cran.us.r-project.org')

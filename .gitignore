@@ -1,6 +1,12 @@
+# --- Data files ---
 src/data/
+*.csv
+
+# --- System and cache files ---
 .DS_Store
 __pycache__/
 .ipynb_checkpoints/
 venv/
 
+# --- RStudio project files ---
+*.Rproj.user
